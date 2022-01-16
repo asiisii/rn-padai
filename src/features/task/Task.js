@@ -13,21 +13,21 @@ import RoundedButton from '../../components/RoundedButton'
 import { fontSizes, spacing } from '../../utils/sizes'
 
 export const Task = ({ addTask }) => {
-	const [input, setInput] = React.useState('')
+	const [task, setTask] = React.useState('')
 	return (
 		<View style={styles.container}>
 			<View style={styles.textSection}>
 				<Text style={styles.title}>What are you working on?</Text>
 				<View style={styles.inputContainer}>
 					<TextInput
-						style={styles.input}
-						value={input}
-						onChangeText={setInput}
+						style={styles.task}
+						value={task}
+						onChangeText={setTask}
 						// onSubmitEditing={({nativeEvent}) => addTask(nativeEvent.text)}
 						placeholder='learn React Native'
 					/>
 
-					<RoundedButton title='+' size={50} onPress={() => addTask(input)} />
+					<RoundedButton title='+' size={50} onPress={() => addTask(task)} />
 				</View>
 			</View>
 			{/* <Text>Things you've been working on</Text>
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
 		// padding: 10,
 	},
 
-	input: {
+	task: {
 		height: 40,
 		margin: spacing.sm,
 		borderWidth: 5,
