@@ -7,8 +7,8 @@ export default function App() {
 	return (
 		<>
 			{/* <Login /> */}
-			{/* <Signup /> */}
-      <Welcome />
+			<Signup />
+      {/* <Welcome /> */}
 		</>
 	)
 }

@@ -28,6 +28,7 @@ import {
 	TextLinkContent,
 } from '../components/styles'
 import { View } from 'react-native'
+import KeyboardAvoider from '../components/KeyboardAvoider'
 
 //colors
 const { brand, darkLight, primary } = Colors
@@ -35,63 +36,65 @@ const { brand, darkLight, primary } = Colors
 export const Login = () => {
 	const [hidePassword, setHidePassword] = useState(true)
 	return (
-		<StyledContainer>
-			<StatusBar styled='dark' />
-			<InnerContainer>
-				<PageLogo source={require('../assets/img3.png')} resizeMode='cover' />
-				<PageTitle>You Owe Me</PageTitle>
-				<SubTitle>Account Login</SubTitle>
-				<Formik
-					initialValues={{ email: '', password: '' }}
-					onSubmit={values => {
-						console.log(values)
-					}}
-				>
-					{({ handleChange, handleBlur, handleSubmit, values }) => (
-						<StyledFormArea>
-							<MyTextInput
-								label='Email Address'
-								icon='mail'
-								placeholder='example@example.com'
-								placeholderTextColor={darkLight}
-								onChangeText={handleChange('email')}
-								onBlur={handleBlur('email')}
-								value={values.email}
-								keyboardType='email-address'
-							/>
-							<MyTextInput
-								label='Password'
-								icon='lock'
-								placeholder='password1'
-								placeholderTextColor={darkLight}
-								onChangeText={handleChange('password')}
-								onBlur={handleBlur('password')}
-								value={values.password}
-								secureTextEntry={hidePassword}
-								isPassword={true}
-								hidePassword={hidePassword}
-								setHidePassword={setHidePassword}
-							/>
-							<MsgBox>...</MsgBox>
-							<StyledButton onPress={handleSubmit}>
-								<ButtonText>Login</ButtonText>
-							</StyledButton>
-							<Line />
-							<StyledButton google={true} onPress={handleSubmit}>
-								<Fontisto name='google' color={primary} size={25} />
-								<ButtonText google={true}>Sign In with Google</ButtonText>
-							</StyledButton>
-							<ExtraView>
-								<ExtraText>Don't have an account already?</ExtraText>
-								<TextLink>
-									<TextLinkContent>Signup</TextLinkContent>
-								</TextLink>
-							</ExtraView>
-						</StyledFormArea>
-					)}
-				</Formik>
-			</InnerContainer>
-		</StyledContainer>
+		<KeyboardAvoider>
+			<StyledContainer>
+				<StatusBar styled='dark' />
+				<InnerContainer>
+					<PageLogo source={require('../assets/img3.png')} resizeMode='cover' />
+					<PageTitle>You Owe Me</PageTitle>
+					<SubTitle>Account Login</SubTitle>
+					<Formik
+						initialValues={{ email: '', password: '' }}
+						onSubmit={values => {
+							console.log(values)
+						}}
+					>
+						{({ handleChange, handleBlur, handleSubmit, values }) => (
+							<StyledFormArea>
+								<MyTextInput
+									label='Email Address'
+									icon='mail'
+									placeholder='example@example.com'
+									placeholderTextColor={darkLight}
+									onChangeText={handleChange('email')}
+									onBlur={handleBlur('email')}
+									value={values.email}
+									keyboardType='email-address'
+								/>
+								<MyTextInput
+									label='Password'
+									icon='lock'
+									placeholder='password1'
+									placeholderTextColor={darkLight}
+									onChangeText={handleChange('password')}
+									onBlur={handleBlur('password')}
+									value={values.password}
+									secureTextEntry={hidePassword}
+									isPassword={true}
+									hidePassword={hidePassword}
+									setHidePassword={setHidePassword}
+								/>
+								<MsgBox>...</MsgBox>
+								<StyledButton onPress={handleSubmit}>
+									<ButtonText>Login</ButtonText>
+								</StyledButton>
+								<Line />
+								<StyledButton google={true} onPress={handleSubmit}>
+									<Fontisto name='google' color={primary} size={25} />
+									<ButtonText google={true}>Sign In with Google</ButtonText>
+								</StyledButton>
+								<ExtraView>
+									<ExtraText>Don't have an account already?</ExtraText>
+									<TextLink>
+										<TextLinkContent>Signup</TextLinkContent>
+									</TextLink>
+								</ExtraView>
+							</StyledFormArea>
+						)}
+					</Formik>
+				</InnerContainer>
+			</StyledContainer>
+		</KeyboardAvoider>
 	)
 }
 
