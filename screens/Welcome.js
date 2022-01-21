@@ -14,7 +14,7 @@ import {
 	Line,
 } from '../components/styles'
 
-export const Welcome = () => {
+export const Welcome = ({ navigation }) => {
 	return (
 		<>
 			<StatusBar styled='light' />
@@ -30,7 +30,11 @@ export const Welcome = () => {
 					<StyledFormArea>
 						<Avatar source={require('../assets/img3.png')} resizeMode='cover' />
 						<Line />
-						<StyledButton onPress={() => {}}>
+						<StyledButton
+							onPress={() => {
+								navigation.navigate('Login')
+							}}
+						>
 							<ButtonText>Logout</ButtonText>
 						</StyledButton>
 					</StyledFormArea>

@@ -21,7 +21,7 @@ const { primary, secondary, tertiary, darkLight, brand, green, red } = Colors
 export const StyledContainer = styled.View`
 	flex: 1;
 	padding: 25px;
-	padding-top: ${StatusBarHeight + 10}px;
+	padding-top: ${StatusBarHeight + 35}px;
 	background-color: ${primary};
 `
 
@@ -38,8 +38,8 @@ export const WelcomeContainer = styled(InnerContainer)`
 `
 
 export const PageLogo = styled.Image`
-	width: 250px;
-	height: 200px;
+	width: 225px;
+	height: 180px;
 `
 
 export const Avatar = styled.Image`

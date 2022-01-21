@@ -35,7 +35,7 @@ import KeyboardAvoider from '../components/KeyboardAvoider'
 //colors
 const { brand, darkLight, primary } = Colors
 
-export const Signup = () => {
+export const Signup = ({ navigation }) => {
 	const [hidePassword, setHidePassword] = useState(true)
 	const [show, setShow] = useState(false)
 	const [date, setDate] = useState(new Date(2022, 0, 1))
@@ -86,6 +86,7 @@ export const Signup = () => {
 						}}
 						onSubmit={values => {
 							console.log(values)
+							navigation.navigate('Welcome')
 						}}
 					>
 						{({ handleChange, handleBlur, handleSubmit, values }) => (
@@ -150,12 +151,12 @@ export const Signup = () => {
 								/>
 								<MsgBox>...</MsgBox>
 								<StyledButton onPress={handleSubmit}>
-									<ButtonText>Login</ButtonText>
+									<ButtonText>Signup</ButtonText>
 								</StyledButton>
 								<Line />
 								<ExtraView>
 									<ExtraText>Already have an account?</ExtraText>
-									<TextLink>
+									<TextLink onPress={() => navigation.navigate('Login')}>
 										<TextLinkContent>Login</TextLinkContent>
 									</TextLink>
 								</ExtraView>
